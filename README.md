@@ -47,7 +47,8 @@ Version control
 
 This deck is managed by git to keep track of all the changes. To update the deck in git you should proceed as follows:
 
-* Export the deck from anki without including the scheduling information
+* Export the deck from anki without including the scheduling information.
+  (Or including them if you need to suspend some cards. In this case be sure that all the cards are scheduled as new cards.)
 * Extract the .apkg file into the _deck_ folder (under the git root directory)
 * Execute the script
 
