@@ -6,8 +6,6 @@ on:
       - "*.*.*"
   pull_request:
     branches: [ "master", "dev" ]
-    tags:
-      - "*.*.*"
 
   workflow_dispatch:
 
@@ -31,5 +29,5 @@ jobs:
         with:
           body: Release generated & published by gh-action automatically
           files: |
-            IPA-anki-deck.apkg
+            Language IPA.apkg
             LICENSE
