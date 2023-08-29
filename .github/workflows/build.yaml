@@ -1,0 +1,33 @@
+name: build
+on:
+  push:
+    branches: [ "master", "dev" ]
+    tags:
+      - "*.*.*"
+  pull_request:
+    branches: [ "master", "dev" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: check out
+        uses: actions/checkout@v3
+
+      - name: setup
+        run: sudo apt update && sudo apt install sqlite3
+
+      - name: build
+        run: ./build-deck.sh
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: Release generated & published by gh-action automatically
+          files: |
+            Language IPA.apkg
+            LICENSE
